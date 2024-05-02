@@ -471,7 +471,7 @@ public class FlutterBluePlusPlugin implements
                     List<Object> withServiceData = (List<Object>) data.get("with_service_data");
                     boolean continuousUpdates =         (boolean) data.get("continuous_updates");
                     int androidScanMode =                   (int) data.get("android_scan_mode");
-                    boolean androidUsesFineLocation =   (boolean) data.get("android_uses_fine_location");
+                    boolean androidUsesFineLocation =   false;
 
                     ArrayList<String> permissions = new ArrayList<>();
 
@@ -486,7 +486,7 @@ public class FlutterBluePlusPlugin implements
                     }
 
                     if (Build.VERSION.SDK_INT <= 30) { // Android 11 (September 2020)
-                        permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
+                       // permissions.add(Manifest.permission.ACCESS_FINE_LOCATION);
                     }
 
                     ensurePermissions(permissions, (granted, perm) -> {
